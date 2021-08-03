@@ -15,9 +15,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         ]}
         openGraph={{
           type: 'profile',
-          locale: 'pt_BR',
           url: 'https://andrevictor.me/',
-          site_name: 'André "Dezzy" Victor',
+          site_name: 'andrevictor.me',
+          title: 'André "Dezzy" Victor',
           description: 'Hi, call me André or Dezzy, happy to see you :D',
           images: [
             {
