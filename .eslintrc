@@ -1,8 +1,8 @@
 {
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "next",
     "next/core-web-vitals",
-    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
@@ -23,7 +23,10 @@
         "argsIgnorePattern": "^_"
       }
     ],
+    "react/jsx-sort-props": "warn",
+    "react/jsx-newline": ["warn", { "prevent": false }],
     "react/react-in-jsx-scope": "off",
+    "react/no-unescaped-entities": "off",
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
