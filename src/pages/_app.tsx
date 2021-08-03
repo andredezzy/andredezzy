@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           },
         ]}
         openGraph={{
-          type: 'website',
+          type: 'profile',
           locale: 'pt_BR',
           url: 'https://andrevictor.me/',
           site_name: 'André "Dezzy" Victor',
@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         twitter={{
           handle: '@andredezzy',
           site: '@andredezzy',
-          cardType: 'summary_large_image',
+          cardType: 'summary',
         }}
       />
 
