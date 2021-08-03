@@ -1,0 +1,9 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+yarn git-branch-is -r "^((?!main|master).)*$"
+
+yarn lint --fix
+git add
+
+npx lint-staged -c .lintstagedrc.json
