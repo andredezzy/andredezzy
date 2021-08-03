@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "yalc update && husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks"
+    "postinstall": "husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks"
   },
   "dependencies": {
     "next": "11.0.1",
