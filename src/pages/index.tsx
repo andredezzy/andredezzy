@@ -13,9 +13,9 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>André "Dezzy" Victor</h1>
 
-        <p className={styles.description}>
-          Hi, call me André or Dezzy, happy to see you :D
-        </p>
+        <button className={styles['tree-button']}>
+          Co-Founder & CTO at Payme Trade
+        </button>
       </main>
     </div>
   )
