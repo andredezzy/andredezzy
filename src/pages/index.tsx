@@ -28,7 +28,7 @@ export default function Home() {
         </div>
 
         <Link href="https://paymetrade.com/">
-          <a className={styles.button} target="_blank">
+          <a className={styles.button} rel="noreferrer" target="_blank">
             <i>
               <Image alt="Payme Trade's Icon" src={paymeTradeIcon} />
             </i>
@@ -37,7 +37,7 @@ export default function Home() {
         </Link>
 
         <Link href="https://www.linkedin.com/in/andredezzy/">
-          <a className={styles.button} target="_blank">
+          <a className={styles.button} rel="noreferrer" target="_blank">
             <i>
               <FiLinkedin />
             </i>
@@ -46,7 +46,7 @@ export default function Home() {
         </Link>
 
         <Link href="https://github.com/andredezzy">
-          <a className={styles.button} target="_blank">
+          <a className={styles.button} rel="noreferrer" target="_blank">
             <i>
               <FiGithub />
             </i>
@@ -55,7 +55,7 @@ export default function Home() {
         </Link>
 
         <Link href="https://instagram.com/oandredezzy">
-          <a className={styles.button} target="_blank">
+          <a className={styles.button} rel="noreferrer" target="_blank">
             <i>
               <FiInstagram />
             </i>
@@ -64,7 +64,7 @@ export default function Home() {
         </Link>
 
         <Link href="https://twitter.com/andredezzy">
-          <a className={styles.button} target="_blank">
+          <a className={styles.button} rel="noreferrer" target="_blank">
             <i>
               <FiTwitter />
             </i>
