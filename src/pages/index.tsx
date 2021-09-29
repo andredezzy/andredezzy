@@ -5,7 +5,7 @@ import Link from 'next/link'
 import avatarImg from '@public/avatar.jpg'
 import paymeTradeIcon from '@public/icons/payme-trade.svg'
 import React from 'react'
-import { FiLinkedin, FiGithub } from 'react-icons/fi'
+import { FiLinkedin, FiGithub, FiInstagram, FiTwitter } from 'react-icons/fi'
 
 import styles from '../styles/Home.module.scss'
 
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <NextSeo
-        description="Hi, call me André or Dezzy, happy to see you :D"
+        description="Hi, my name is André Victor, but can also call me Dezzy. Since I was 10 years old I develop for fun and at 15 I got my first internship. Programming and technology lover since ever. Passionate about Open Source projects. Extremely motivated to develop, learn and help anyone who can."
         title='André "Dezzy" Victor'
       />
 
@@ -51,6 +51,24 @@ export default function Home() {
               <FiGithub />
             </i>
             GitHub
+          </a>
+        </Link>
+
+        <Link href="https://instagram.com/oandredezzy">
+          <a className={styles.button} target="_blank">
+            <i>
+              <FiInstagram />
+            </i>
+            Instagram
+          </a>
+        </Link>
+
+        <Link href="https://twitter.com/andredezzy">
+          <a className={styles.button} target="_blank">
+            <i>
+              <FiTwitter />
+            </i>
+            Twitter
           </a>
         </Link>
       </main>
