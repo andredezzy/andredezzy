@@ -72,6 +72,13 @@ export default function Home() {
           </a>
         </Link>
       </main>
+
+      <iframe
+        className={styles.background3d}
+        frameBorder="0"
+        id="303813b8-50d9-4d82-a507-8c45c1b3618f"
+        src="https://www.vectary.com/viewer/v1/?model=303813b8-50d9-4d82-a507-8c45c1b3618f&env=studio2"
+      ></iframe>
     </div>
   )
 }

@@ -16,13 +16,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         languageAlternates={[
           {
             hrefLang: 'pt-BR',
-            href: 'https://www.andrevictor.me/pt-BR',
+            href: 'https://www.andredezzy.com/pt-BR',
           },
         ]}
         openGraph={{
           type: 'profile',
-          url: 'https://andrevictor.me/',
-          site_name: 'andrevictor.me',
+          url: 'https://andredezzy.com/',
+          site_name: 'andredezzy.com',
           title: 'André "Dezzy" Victor',
           description:
             'Hi, my name is André Victor, but can also call me Dezzy. Since I was 10 years old I develop for fun and at 15 I got my first internship. Programming and technology lover since ever. Passionate about Open Source projects. Extremely motivated to develop, learn and help anyone who can.',

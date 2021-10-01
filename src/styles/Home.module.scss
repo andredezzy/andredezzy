@@ -17,8 +17,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 1;
 
   padding: 3.5rem 0;
+}
+
+.background3d {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  opacity: 0.32;
+
+  .arBadge {
+    display: none;
+  }
 }
 
 .title {
@@ -34,8 +50,13 @@
 .avatar {
   margin-bottom: 3rem;
 
+  > div {
+    overflow: initial !important;
+  }
+
   img {
     border-radius: 50%;
+    box-shadow: 0 0 4rem 0.5rem black;
   }
 }
 
@@ -49,7 +70,7 @@
   max-width: 288px;
   padding: 16px 40px;
 
-  background: #000;
+  background: rgba(0, 0, 0, 0.56);
   border: 1px solid #fff;
   border-radius: 8px;
 
@@ -58,6 +79,8 @@
   color: #fff;
 
   transition: all .2s;
+
+  box-shadow: 0 0 4rem 0.5rem black;
 
   & + .button {
     margin-top: 24px;
