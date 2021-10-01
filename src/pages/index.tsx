@@ -2,9 +2,10 @@ import { NextSeo } from 'next-seo'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import React from 'react'
+
 import avatarImg from '@public/avatar.jpg'
 import paymeTradeIcon from '@public/icons/payme-trade.svg'
-import React from 'react'
 import { FiLinkedin, FiGithub, FiInstagram, FiTwitter } from 'react-icons/fi'
 
 import styles from '../styles/Home.module.scss'
@@ -72,13 +73,6 @@ export default function Home() {
           </a>
         </Link>
       </main>
-
-      <iframe
-        className={styles.background3d}
-        frameBorder="0"
-        id="303813b8-50d9-4d82-a507-8c45c1b3618f"
-        src="https://www.vectary.com/viewer/v1/?model=303813b8-50d9-4d82-a507-8c45c1b3618f&env=studio2"
-      ></iframe>
     </div>
   )
 }

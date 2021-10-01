@@ -41,6 +41,7 @@
         "newlinesBetween": "always",
         "groups": [
           "/^next/",
+          "/^react$/",
           "module",
           "/^@\//",
           "parent",
