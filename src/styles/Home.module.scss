@@ -51,12 +51,26 @@
   margin-bottom: 3rem;
 
   > div {
+    position: relative;
     overflow: initial !important;
+
+    &:before {
+      content: "";
+      border-radius: 50%;
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      z-index: -1;
+      box-shadow: 0 0 4rem 0.5rem black;
+    }
   }
 
   img {
     border-radius: 50%;
-    box-shadow: 0 0 4rem 0.5rem black;
   }
 }
 
@@ -80,7 +94,18 @@
 
   transition: all .2s;
 
-  box-shadow: 0 0 4rem 0.5rem black;
+  &:before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: -1;
+    box-shadow: 0 0 4rem 0.5rem black;
+  }
 
   & + .button {
     margin-top: 24px;

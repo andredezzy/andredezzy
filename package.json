@@ -10,12 +10,15 @@
     "postinstall": "husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks"
   },
   "dependencies": {
+    "@react-three/drei": "^7.12.5",
+    "@react-three/fiber": "^7.0.7",
     "next": "^11.1.2",
     "next-seo": "^4.26.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
-    "sass": "^1.37.2"
+    "sass": "^1.37.2",
+    "three": "^0.133.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
