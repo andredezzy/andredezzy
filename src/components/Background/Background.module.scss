@@ -1,0 +1,15 @@
+.canvasWrapper {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  opacity: 0.56;
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}

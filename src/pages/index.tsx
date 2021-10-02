@@ -1,4 +1,5 @@
 import { NextSeo } from 'next-seo'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -9,6 +10,10 @@ import paymeTradeIcon from '@public/icons/payme-trade.svg'
 import { FiLinkedin, FiGithub, FiInstagram, FiTwitter } from 'react-icons/fi'
 
 import styles from '../styles/Home.module.scss'
+
+const Background = dynamic(() => import('../components/Background'), {
+  ssr: false,
+})
 
 export default function Home() {
   return (
@@ -73,6 +78,8 @@ export default function Home() {
           </a>
         </Link>
       </main>
+
+      <Background />
     </div>
   )
 }
