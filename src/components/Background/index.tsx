@@ -385,7 +385,7 @@ export default function Background() {
       <OrbitControls
         {...({
           autoRotate: true,
-          autoRotateSpeed: -3,
+          autoRotateSpeed: -5,
           enableZoom: false,
           maxPolarAngle: Math.PI / 2,
           minPolarAngle: Math.PI / 2,
