@@ -60,7 +60,7 @@ export default function Home() {
           </a>
         </Link>
 
-        <Link href="https://instagram.com/oandredezzy">
+        <Link href="https://instagram.com/andre.dezzy">
           <a className={styles.button} rel="noreferrer" target="_blank">
             <i>
               <FiInstagram />
