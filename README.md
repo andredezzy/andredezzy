@@ -1,3 +1,3 @@
 ### Hi there 👋
 
-![](https://komarev.com/ghpvc/?username=andredezzy&color=blue)
+<!-- ![](https://komarev.com/ghpvc/?username=andredezzy&color=blue) -->
