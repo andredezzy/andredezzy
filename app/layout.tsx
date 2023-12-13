@@ -5,11 +5,11 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import {
-  ClientHintsCheck,
-  UserPreferencesProvider,
-} from '@/features/user-preferences/client-hints-check';
+import { ClientHintsCheck } from '@/features/user-preferences/client-hints-check';
 import { getUserPreferences } from '@/features/user-preferences/get-user-preferences';
+
+import { UserPreferencesProvider } from './features/user-preferences/user-preferences-context';
+import { cn } from './lib/utils';
 
 const inter = Inter({
   subsets: ['latin'],
