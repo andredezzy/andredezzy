@@ -24,7 +24,7 @@ export function getUserPreferences() {
           getCookieValue(cookieName) ?? hint.fallback,
         );
       } else {
-        acc[hintName] = getCookieValue(cookieName) ?? hint.fallback;
+        acc[hintName] = getCookieValue(cookieName) ?? (hint.fallback as any);
       }
 
       return acc;
