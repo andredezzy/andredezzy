@@ -22,9 +22,9 @@ export function ThemeSwitcher() {
       <button
         type="button"
         className={cn(
-          'text-muted-foreground hover:text-foreground rounded-full p-2 transition-colors',
+          'rounded-full p-2 text-muted-foreground transition-colors hover:text-foreground',
           {
-            'bg-accent text-foreground cursor-default': !theme,
+            'cursor-default bg-accent text-foreground': !theme,
           },
         )}
         onClick={() => changeTheme('system')}
@@ -36,9 +36,9 @@ export function ThemeSwitcher() {
       <button
         type="button"
         className={cn(
-          'text-muted-foreground hover:text-foreground rounded-full p-2 transition-colors',
+          'rounded-full p-2 text-muted-foreground transition-colors hover:text-foreground',
           {
-            'bg-accent text-foreground cursor-default': theme === 'light',
+            'cursor-default bg-accent text-foreground': theme === 'light',
           },
         )}
         onClick={() => changeTheme('light')}
@@ -50,9 +50,9 @@ export function ThemeSwitcher() {
       <button
         type="button"
         className={cn(
-          'text-muted-foreground hover:text-foreground rounded-full p-2 transition-colors',
+          'rounded-full p-2 text-muted-foreground transition-colors hover:text-foreground',
           {
-            'bg-accent text-foreground cursor-default': theme === 'dark',
+            'cursor-default bg-accent text-foreground': theme === 'dark',
           },
         )}
         onClick={() => changeTheme('dark')}
