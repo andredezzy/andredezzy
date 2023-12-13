@@ -1,2 +1,3 @@
 - Notion as CMS
+- Dynamic open graph for articles
 - shadcn/ui
