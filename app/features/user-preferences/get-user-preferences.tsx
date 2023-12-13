@@ -1,4 +1,5 @@
-import { getCookieValue } from '../../utils/get-cookie-value';
+import { getCookieValue } from '@/utils/get-cookie-value';
+
 import { userPreferences, type UserPreferencesName } from './cookies';
 
 /**
