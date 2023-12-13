@@ -1,0 +1,2 @@
+- Notion as CMS
+- shadcn/ui
