@@ -35,7 +35,7 @@ export default async function ArticlePage({
   console.log(JSON.stringify(response, null, 2));
 
   return (
-    <article className="min-h-screen space-y-6 p-24">
+    <article className="min-h-screen space-y-6 px-6 py-20">
       <Link href="/">
         <ArrowLeft size={24} />
       </Link>

@@ -37,7 +37,7 @@ export default async function HomePage() {
   console.log(JSON.stringify(articles, null, 2));
 
   return (
-    <main className="min-h-screen space-y-6 p-24">
+    <main className="min-h-screen space-y-6 px-6 py-20">
       <h1 className="text-2xl font-bold">André &quot;Dezzy&quot; Victor</h1>
 
       <h2 className="text-lg font-bold">Articles</h2>
