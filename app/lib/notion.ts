@@ -20,4 +20,11 @@ export const NOTION_INTEGRATION_SECRET = String(
   process.env.NEXT_PUBLIC_NOTION_INTEGRATION_SECRET,
 );
 
-export const notion = new Client({ auth: NOTION_INTEGRATION_SECRET });
+export const notion = new Client({
+  auth: NOTION_INTEGRATION_SECRET,
+  fetch: (url, options) =>
+    fetch(url, {
+      ...options,
+      next: { revalidate: 600 },
+    }),
+});

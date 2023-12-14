@@ -21,7 +21,7 @@ type Article = PageObjectResponse & {
   };
 };
 
-export const revalidate = 3600;
+export const revalidate = 600;
 
 export default async function HomePage() {
   const response = await notion.databases.query({
@@ -48,13 +48,13 @@ export default async function HomePage() {
 
       <ul className="flex flex-col gap-2">
         {articles.map(article => {
-          const path = '/articles' + new URL(article.url).pathname;
+          const slug = '/articles' + new URL(article.url).pathname;
 
           return (
             <li key={article.id}>
               <Link
                 className="text-indigo-500 underline dark:text-indigo-400"
-                href={path}
+                href={slug}
               >
                 {article.properties.Name.title[0].plain_text} (
                 {article.properties.Status.status.name})

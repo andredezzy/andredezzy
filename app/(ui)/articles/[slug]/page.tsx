@@ -3,7 +3,7 @@ import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
 import { ThemeSwitcher } from '@/components/theme-switcher';
-import { notion } from '@/lib/notion';
+import { NOTION_BLOG_DATABASE_ID, notion } from '@/lib/notion';
 
 type Article = PageObjectResponse & {
   properties: {
@@ -21,7 +21,23 @@ export type ArticlePageParams = {
   slug: string;
 };
 
-export const revalidate = 3600;
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const response = await notion.databases.query({
+    database_id: NOTION_BLOG_DATABASE_ID,
+  });
+
+  const articles = response.results as Article[];
+
+  return articles.map(article => {
+    const slug = '/articles' + new URL(article.url).pathname;
+
+    return {
+      slug,
+    };
+  });
+}
 
 export default async function ArticlePage({
   params,
