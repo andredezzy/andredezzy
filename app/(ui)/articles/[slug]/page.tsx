@@ -21,6 +21,8 @@ export type ArticlePageParams = {
   slug: string;
 };
 
+export const revalidate = 3600;
+
 export default async function ArticlePage({
   params,
 }: {

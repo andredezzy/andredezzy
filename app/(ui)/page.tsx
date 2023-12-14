@@ -21,6 +21,8 @@ type Article = PageObjectResponse & {
   };
 };
 
+export const revalidate = 3600;
+
 export default async function HomePage() {
   const response = await notion.databases.query({
     database_id: NOTION_BLOG_DATABASE_ID,
