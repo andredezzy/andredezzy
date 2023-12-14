@@ -38,7 +38,9 @@ export default async function HomePage() {
 
   return (
     <main className="container min-h-screen space-y-6 py-20">
-      <h1 className="text-2xl font-bold">André &quot;Dezzy&quot; Victor</h1>
+      <h1 className="font-serif text-2xl font-bold">
+        André &quot;Dezzy&quot; Victor
+      </h1>
 
       <h2 className="text-lg font-bold">Articles</h2>
 
