@@ -1,3 +1,4 @@
-- Notion as CMS
+- Awesome CMS using Notion (free)
+- See click count statistics
 - Dynamic open graph for articles
-- shadcn/ui
+- Use shadcn/ui
