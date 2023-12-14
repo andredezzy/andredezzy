@@ -45,7 +45,7 @@ export default async function ArticlePage({
       </h1>
 
       <Link
-        className="block text-indigo-500 underline"
+        className="block text-indigo-500 underline dark:text-indigo-400"
         href={article.public_url || '#'}
       >
         Read on Notion

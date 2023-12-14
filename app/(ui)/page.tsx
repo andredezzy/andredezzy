@@ -50,7 +50,10 @@ export default async function HomePage() {
 
           return (
             <li key={article.id}>
-              <Link href={path}>
+              <Link
+                className="text-indigo-500 underline dark:text-indigo-400"
+                href={path}
+              >
                 {article.properties.Name.title[0].plain_text} (
                 {article.properties.Status.status.name})
               </Link>
