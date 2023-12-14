@@ -3,18 +3,24 @@ import './globals.css';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Roboto_Serif } from 'next/font/google';
 
 import { ClientHintsCheck } from '@/features/user-preferences/client-hints-check';
 import { getUserPreferences } from '@/features/user-preferences/get-user-preferences';
 
-import { UserPreferencesProvider } from './features/user-preferences/user-preferences-context';
-import { cn } from './lib/utils';
+import { UserPreferencesProvider } from '../features/user-preferences/user-preferences-context';
+import { cn } from '../lib/utils';
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+});
+
+const robotoSerif = Roboto_Serif({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-roboto-serif',
 });
 
 export const metadata: Metadata = {
@@ -55,7 +61,10 @@ export default function RootLayout({
   const theme = userPreferences.theme || userPreferences.prefersColorScheme;
 
   return (
-    <html lang="en" className={cn([theme, inter.variable])}>
+    <html
+      lang="en"
+      className={cn([theme, inter.variable, robotoSerif.variable])}
+    >
       <head>
         <ClientHintsCheck />
       </head>

@@ -1,4 +1,5 @@
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
+import Link from 'next/link';
 
 import { ThemeSwitcher } from '@/components/theme-switcher';
 import { NOTION_BLOG_DATABASE_ID, notion } from '@/lib/notion';
@@ -20,7 +21,7 @@ type Article = PageObjectResponse & {
   };
 };
 
-export default async function Home() {
+export default async function HomePage() {
   const response = await notion.databases.query({
     database_id: NOTION_BLOG_DATABASE_ID,
     sorts: [
@@ -36,20 +37,24 @@ export default async function Home() {
   console.log(JSON.stringify(articles, null, 2));
 
   return (
-    <main className="min-h-screen flex-col space-y-6 p-24">
+    <main className="min-h-screen space-y-6 p-24">
       <h1 className="text-2xl font-bold">André &quot;Dezzy&quot; Victor</h1>
 
       <h2 className="text-lg font-bold">Articles</h2>
 
       <ul className="flex flex-col gap-2">
-        {articles.map(article => (
-          <li key={article.id}>
-            <a href={article.public_url || '#'}>
-              {article.properties.Name.title[0].plain_text} (
-              {article.properties.Status.status.name})
-            </a>
-          </li>
-        ))}
+        {articles.map(article => {
+          const path = '/articles' + new URL(article.url).pathname;
+
+          return (
+            <li key={article.id}>
+              <Link href={path}>
+                {article.properties.Name.title[0].plain_text} (
+                {article.properties.Status.status.name})
+              </Link>
+            </li>
+          );
+        })}
       </ul>
 
       <ThemeSwitcher />
