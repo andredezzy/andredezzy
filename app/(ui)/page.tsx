@@ -44,6 +44,12 @@ export default async function HomePage() {
         André &quot;Dezzy&quot; Victor
       </h1>
 
+      <p className="text-muted-foreground">
+        Software Engineer. Designer. DevTools & Open Source enthusiast.
+        Entrepreneur. Cars amateur. Photographer. Traveling and (trying)
+        fitness/bodybuilding lifestyle.
+      </p>
+
       <h2 className="text-lg font-bold">Articles</h2>
 
       <ul className="flex flex-col gap-2">
