@@ -17,6 +17,11 @@ type Article = PageObjectResponse & {
         },
       ];
     };
+    Status: {
+      status: {
+        name: string;
+      };
+    };
   };
 };
 
@@ -64,7 +69,8 @@ export default async function ArticlePage({
       </Link>
 
       <h1 className="font-serif text-2xl font-bold">
-        {article.properties.Name.title[0].plain_text}
+        {article.properties.Name.title[0].plain_text} (
+        {article.properties.Status.status.name})
       </h1>
 
       <Link
