@@ -17,8 +17,11 @@
     "clsx": "^2.0.0",
     "lucide-react": "^0.294.0",
     "next": "14.0.4",
+    "notion-client": "^6.16.0",
+    "notion-types": "^6.16.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-notion-x": "^6.16.0",
     "tailwind-merge": "^2.1.0",
     "tailwindcss-animate": "^1.0.7"
   },

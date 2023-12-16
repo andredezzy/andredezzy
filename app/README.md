@@ -2,3 +2,4 @@
 - See click count statistics
 - Dynamic open graph for articles
 - Use shadcn/ui
+- Load photographies from instagram profile

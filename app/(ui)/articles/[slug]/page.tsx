@@ -1,9 +1,12 @@
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import { NotionAPI } from 'notion-client';
 
 import { ThemeSwitcher } from '@/components/theme-switcher';
 import { NOTION_BLOG_DATABASE_ID, notion } from '@/lib/notion';
+
+import { ArticleNotionRenderer } from './article-notion-renderer';
 
 type Article = PageObjectResponse & {
   properties: {
@@ -20,6 +23,8 @@ type Article = PageObjectResponse & {
 export type ArticlePageParams = {
   slug: string;
 };
+
+export const revalidate = 600;
 
 export const dynamicParams = true;
 
@@ -48,14 +53,14 @@ export default async function ArticlePage({
 
   const response = await notion.pages.retrieve({ page_id: id });
 
-  const { results: blocks } = await notion.blocks.children.list({
-    block_id: id,
-  });
-
   const article = response as Article;
 
+  const notionClient = new NotionAPI();
+
+  const recordMap = await notionClient.getPage(id);
+
   return (
-    <article className="container min-h-screen space-y-6 py-20">
+    <>
       <Link href="/">
         <ArrowLeft size={24} />
       </Link>
@@ -71,9 +76,9 @@ export default async function ArticlePage({
         Read on Notion
       </Link>
 
-      <pre>{JSON.stringify(blocks, null, 2)}</pre>
+      <ArticleNotionRenderer recordMap={recordMap} />
 
       <ThemeSwitcher />
-    </article>
+    </>
   );
 }
