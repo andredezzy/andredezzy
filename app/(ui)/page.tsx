@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { ThemeSwitcher } from '@/components/theme-switcher';
 import { NOTION_BLOG_DATABASE_ID, notion } from '@/lib/notion';
+import { cn } from '@/lib/utils';
 
 type Article = PageObjectResponse & {
   properties: {
@@ -31,12 +32,14 @@ export default async function HomePage() {
         property: 'Date',
         direction: 'descending',
       },
+      {
+        property: 'Status',
+        direction: 'descending',
+      },
     ],
   });
 
   const articles = response.results as Article[];
-
-  console.log(JSON.stringify(articles, null, 2));
 
   return (
     <main className="container min-h-screen space-y-6 py-20">
@@ -59,7 +62,12 @@ export default async function HomePage() {
           return (
             <li key={article.id}>
               <Link
-                className="text-indigo-500 underline dark:text-indigo-400"
+                className={cn('underline', {
+                  'text-muted-foreground':
+                    article.properties.Status.status.name !== 'Published',
+                  'text-indigo-500 dark:text-indigo-400':
+                    article.properties.Status.status.name === 'Published',
+                })}
                 href={slug}
               >
                 {article.properties.Name.title[0].plain_text} (
