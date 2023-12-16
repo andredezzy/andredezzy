@@ -48,9 +48,11 @@ export default async function ArticlePage({
 
   const response = await notion.pages.retrieve({ page_id: id });
 
-  const article = response as Article;
+  const { results: blocks } = await notion.blocks.children.list({
+    block_id: id,
+  });
 
-  console.log(JSON.stringify(response, null, 2));
+  const article = response as Article;
 
   return (
     <article className="container min-h-screen space-y-6 py-20">
@@ -68,6 +70,8 @@ export default async function ArticlePage({
       >
         Read on Notion
       </Link>
+
+      <pre>{JSON.stringify(blocks, null, 2)}</pre>
 
       <ThemeSwitcher />
     </article>
