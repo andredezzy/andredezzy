@@ -51,9 +51,7 @@ export default async function ArticlePage({
 }) {
   const id = params.slug.split('-').slice(-1)[0];
 
-  const response = await notion.pages.retrieve({ page_id: id });
-
-  const article = response as Article;
+  const article = (await notion.pages.retrieve({ page_id: id })) as Article;
 
   const notionClient = new NotionAPI();
 
