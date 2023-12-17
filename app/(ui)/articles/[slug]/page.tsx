@@ -1,29 +1,13 @@
-import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Eye } from 'lucide-react';
 import Link from 'next/link';
 import { NotionAPI } from 'notion-client';
 
 import { ThemeSwitcher } from '@/components/theme-switcher';
+import { NotionArticle } from '@/interfaces/notion-article';
 import { NOTION_BLOG_DATABASE_ID, notion } from '@/lib/notion';
 
 import { ArticleNotionRenderer } from './article-notion-renderer';
-
-type Article = PageObjectResponse & {
-  properties: {
-    Name: {
-      title: [
-        {
-          plain_text: string;
-        },
-      ];
-    };
-    Status: {
-      status: {
-        name: string;
-      };
-    };
-  };
-};
+import { ArticleNotionViewCounter } from './article-notion-view-counter';
 
 export type ArticlePageParams = {
   slug: string;
@@ -38,10 +22,10 @@ export async function generateStaticParams() {
     database_id: NOTION_BLOG_DATABASE_ID,
   });
 
-  const articles = response.results as Article[];
+  const articles = response.results as NotionArticle[];
 
   return articles.map(article => {
-    const slug = '/articles' + new URL(article.url).pathname;
+    const slug = new URL(article.url).pathname;
 
     return {
       slug,
@@ -56,7 +40,9 @@ export default async function ArticlePage({
 }) {
   const id = params.slug.split('-').slice(-1)[0];
 
-  const article = (await notion.pages.retrieve({ page_id: id })) as Article;
+  const article = (await notion.pages.retrieve({
+    page_id: id,
+  })) as NotionArticle;
 
   const notionClient = new NotionAPI();
 
@@ -64,6 +50,8 @@ export default async function ArticlePage({
 
   return (
     <>
+      <ArticleNotionViewCounter articlePageId={id} />
+
       <Link href="/">
         <ArrowLeft size={24} />
       </Link>
@@ -73,12 +61,17 @@ export default async function ArticlePage({
         {article.properties.Status.status.name})
       </h1>
 
-      <Link
-        className="block text-indigo-500 underline dark:text-indigo-400"
-        href={article.public_url || '#'}
-      >
-        Read on Notion
-      </Link>
+      <div className="flex items-center gap-3 text-indigo-500 dark:text-indigo-400">
+        <Link className="block underline" href={article.public_url || '#'}>
+          Read on Notion
+        </Link>
+
+        <div className="] flex items-center gap-1">
+          <Eye size={16} />
+
+          <span>{article.properties['Blog views count'].number}</span>
+        </div>
+      </div>
 
       <ArticleNotionRenderer recordMap={recordMap} />
 

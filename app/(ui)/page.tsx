@@ -1,26 +1,9 @@
-import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import Link from 'next/link';
 
 import { ThemeSwitcher } from '@/components/theme-switcher';
+import { NotionArticle } from '@/interfaces/notion-article';
 import { NOTION_BLOG_DATABASE_ID, notion } from '@/lib/notion';
 import { cn } from '@/lib/utils';
-
-type Article = PageObjectResponse & {
-  properties: {
-    Name: {
-      title: [
-        {
-          plain_text: string;
-        },
-      ];
-    };
-    Status: {
-      status: {
-        name: string;
-      };
-    };
-  };
-};
 
 export const revalidate = 600;
 
@@ -39,7 +22,7 @@ export default async function HomePage() {
     ],
   });
 
-  const articles = response.results as Article[];
+  const articles = response.results as NotionArticle[];
 
   return (
     <main className="container min-h-screen space-y-6 py-20">
