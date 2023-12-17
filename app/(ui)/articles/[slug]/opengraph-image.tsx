@@ -6,7 +6,7 @@ import { notion } from '@/lib/notion';
 
 import { ArticlePageParams } from './page';
 
-export const runtime: ServerRuntime = 'edge';
+export const runtime: ServerRuntime = 'nodejs';
 
 export const size = {
   width: 1200,
