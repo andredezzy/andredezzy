@@ -12,13 +12,13 @@ interface ArticleNotionRendererProps {
 export function ArticleNotionRenderer({
   recordMap,
 }: ArticleNotionRendererProps) {
-  const { theme } = useUserPreferences();
+  const { theme, prefersColorScheme } = useUserPreferences();
 
   return (
     <NotionRenderer
       recordMap={recordMap}
       className="!mx-0 !w-full !px-0"
-      darkMode={theme === 'dark'}
+      darkMode={prefersColorScheme === 'dark' || theme === 'dark'}
     />
   );
 }
