@@ -56,7 +56,7 @@ export default async function ArticlePage({
         <ArrowLeft size={24} />
       </Link>
 
-      <h1 className="font-serif text-2xl font-bold">
+      <h1 className="font-serif text-4xl font-semibold">
         {article.properties.Name.title[0].plain_text} (
         {article.properties.Status.status.name})
       </h1>

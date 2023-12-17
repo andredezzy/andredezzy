@@ -3,7 +3,8 @@ import './globals.css';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata } from 'next';
-import { Inter, Roboto_Serif } from 'next/font/google';
+import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 
 import { ClientHintsCheck } from '@/features/user-preferences/client-hints-check';
 import { getUserPreferences } from '@/features/user-preferences/get-user-preferences';
@@ -17,10 +18,18 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const robotoSerif = Roboto_Serif({
-  subsets: ['latin'],
+const adobeTextProRegularFont = localFont({
+  src: '../../public/fonts/AdobeTextPro-Regular.ttf',
   display: 'swap',
-  variable: '--font-roboto-serif',
+  variable: '--font-adobe-text-pro-regular',
+  weight: '400',
+});
+
+const adobeTextProSemiboldFont = localFont({
+  src: '../../public/fonts/AdobeTextPro-Semibold.ttf',
+  display: 'swap',
+  variable: '--font-adobe-text-pro-semibold',
+  weight: '600',
 });
 
 export const metadata: Metadata = {
@@ -63,7 +72,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn([theme, inter.variable, robotoSerif.variable])}
+      className={cn([
+        theme,
+        inter.variable,
+        adobeTextProRegularFont.variable,
+        adobeTextProSemiboldFont.variable,
+      ])}
     >
       <head>
         <ClientHintsCheck />

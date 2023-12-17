@@ -26,7 +26,7 @@ export default async function HomePage() {
 
   return (
     <main className="container min-h-screen space-y-6 py-20">
-      <h1 className="font-serif text-2xl font-bold">
+      <h1 className="font-serif text-3xl font-semibold">
         André &quot;Dezzy&quot; Victor
       </h1>
 
@@ -36,7 +36,7 @@ export default async function HomePage() {
         fitness/bodybuilding lifestyle.
       </p>
 
-      <h2 className="text-lg font-bold">Articles</h2>
+      <h2 className="text-lg font-medium">Articles</h2>
 
       <ul className="flex flex-col gap-2">
         {articles.map(article => {

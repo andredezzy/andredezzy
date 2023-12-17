@@ -16,7 +16,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)'],
-        serif: ['var(--font-roboto-serif)'],
+        serif: ['var(--font-adobe-text-pro-regular)'],
       },
       colors: {
         border: 'hsl(var(--border))',
