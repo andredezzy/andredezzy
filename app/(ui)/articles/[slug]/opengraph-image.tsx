@@ -1,4 +1,5 @@
 import { ServerRuntime } from 'next';
+import { headers } from 'next/headers';
 import { ImageResponse } from 'next/og';
 
 import { NotionArticle } from '@/interfaces/notion-article';
@@ -22,19 +23,16 @@ export default async function Image({ params }: { params: ArticlePageParams }) {
     page_id: id,
   })) as NotionArticle;
 
+  const protocol = headers().get('x-forwarded-proto') || 'http';
+  const host = headers().get('host');
+
   const [adobeTextProRegular, adobeTextProSemibold] = await Promise.all([
-    fetch(
-      new URL(
-        '../../../../public/fonts/AdobeTextPro-Regular.ttf',
-        import.meta.url,
-      ),
-    ).then(res => res.arrayBuffer()),
-    fetch(
-      new URL(
-        '../../../../public/fonts/AdobeTextPro-Semibold.ttf',
-        import.meta.url,
-      ),
-    ).then(res => res.arrayBuffer()),
+    fetch(`${protocol}://${host}/fonts/AdobeTextPro-Regular.ttf`).then(res =>
+      res.arrayBuffer(),
+    ),
+    fetch(`${protocol}://${host}/fonts/AdobeTextPro-Semibold.ttf`).then(res =>
+      res.arrayBuffer(),
+    ),
   ]);
 
   return new ImageResponse(
