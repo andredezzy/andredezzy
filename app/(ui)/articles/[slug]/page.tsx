@@ -66,7 +66,7 @@ export default async function ArticlePage({
           Read on Notion
         </Link>
 
-        <div className="] flex items-center gap-1">
+        <div className="flex items-center gap-1">
           <Eye size={16} />
 
           <span>{article.properties['Blog views count'].number}</span>

@@ -39,8 +39,8 @@ export default async function Image({ params }: { params: ArticlePageParams }) {
 
   return new ImageResponse(
     (
-      <div tw="flex h-full w-full flex-col items-center border border-black px-24 py-20">
-        <h1 tw="font-serif text-6xl font-semibold leading-normal text-foreground">
+      <div tw="flex h-full w-full flex-col border border-black px-24 py-20">
+        <h1 tw="font-serif text-6xl font-semibold leading-normal">
           {article.properties.Name.title[0].plain_text} (
           {article.properties.Status.status.name})
         </h1>
