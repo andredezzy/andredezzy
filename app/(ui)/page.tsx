@@ -19,6 +19,10 @@ export default async function HomePage() {
         property: 'Status',
         direction: 'descending',
       },
+      {
+        property: 'Last edited time',
+        direction: 'descending',
+      },
     ],
   });
 

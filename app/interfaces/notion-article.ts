@@ -17,5 +17,9 @@ export type NotionArticle = PageObjectResponse & {
     'Blog views count': {
       number: number;
     };
+    'Last edited time': {
+      last_edited_time: string;
+    };
+    }
   };
 };
