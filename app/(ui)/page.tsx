@@ -78,6 +78,8 @@ export default async function HomePage() {
         </ul>
       </main>
 
+      <hr />
+
       <ThemeSwitcher />
     </main>
   );

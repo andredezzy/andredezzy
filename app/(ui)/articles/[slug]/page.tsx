@@ -75,6 +75,8 @@ export default async function ArticlePage({
 
       <ArticleNotionRenderer recordMap={recordMap} />
 
+      <hr />
+
       <ThemeSwitcher />
     </>
   );
