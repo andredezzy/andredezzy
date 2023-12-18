@@ -26,22 +26,33 @@ export default async function Image({ params }: { params: ArticlePageParams }) {
   const protocol = headers().get('x-forwarded-proto') || 'http';
   const host = headers().get('host');
 
-  const [adobeTextProRegular, adobeTextProSemibold] = await Promise.all([
-    fetch(`${protocol}://${host}/fonts/AdobeTextPro-Regular.ttf`).then(res =>
-      res.arrayBuffer(),
-    ),
-    fetch(`${protocol}://${host}/fonts/AdobeTextPro-Semibold.ttf`).then(res =>
-      res.arrayBuffer(),
-    ),
-  ]);
+  const [adobeTextProRegular, adobeTextProSemibold, interRegular] =
+    await Promise.all([
+      fetch(`${protocol}://${host}/fonts/AdobeTextPro-Regular.ttf`).then(res =>
+        res.arrayBuffer(),
+      ),
+      fetch(`${protocol}://${host}/fonts/AdobeTextPro-Semibold.ttf`).then(res =>
+        res.arrayBuffer(),
+      ),
+      fetch(`${protocol}://${host}/fonts/Inter-Regular.ttf`).then(res =>
+        res.arrayBuffer(),
+      ),
+    ]);
 
   return new ImageResponse(
     (
-      <div tw="flex h-full w-full flex-col bg-white px-24 py-20">
-        <h1 tw="font-serif text-6xl font-semibold leading-normal">
+      <div tw="flex h-full w-full flex-col justify-between bg-white px-24 py-20">
+        <h1
+          style={{ fontFamily: 'AdobeTextPro' }}
+          tw="text-6xl font-semibold leading-normal"
+        >
           {article.properties.Name.title[0].plain_text} (
           {article.properties.Status.status.name})
         </h1>
+
+        <span style={{ fontFamily: 'Inter' }} tw="text-3xl">
+          @andredezzy
+        </span>
       </div>
     ),
     {
@@ -58,6 +69,12 @@ export default async function Image({ params }: { params: ArticlePageParams }) {
           data: adobeTextProSemibold,
           style: 'normal',
           weight: 600,
+        },
+        {
+          name: 'Inter',
+          data: interRegular,
+          style: 'normal',
+          weight: 400,
         },
       ],
     },
