@@ -1,5 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  redirects() {
+    return [
+      {
+        source: '/articles/:path*',
+        destination: '/blog/:path*',
+        permanent: true,
+      },
+    ];
+  },
+
   headers() {
     return [
       {
