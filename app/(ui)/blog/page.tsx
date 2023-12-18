@@ -2,7 +2,7 @@ import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
 import { ThemeSwitcher } from '@/components/theme-switcher';
-import { NotionArticle } from '@/interfaces/notion-article';
+import { NotionBlogArticle } from '@/interfaces/notion-blog-article';
 import { NOTION_BLOG_DATABASE_ID, notion } from '@/lib/notion';
 import { cn } from '@/lib/utils';
 
@@ -27,7 +27,7 @@ export default async function HomePage() {
     ],
   });
 
-  const articles = response.results as NotionArticle[];
+  const articles = response.results as NotionBlogArticle[];
 
   return (
     <main className="container min-h-screen space-y-8 py-20">

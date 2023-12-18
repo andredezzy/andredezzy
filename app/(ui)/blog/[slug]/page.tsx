@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { NotionAPI } from 'notion-client';
 
 import { ThemeSwitcher } from '@/components/theme-switcher';
-import { NotionArticle } from '@/interfaces/notion-article';
+import { NotionBlogArticle } from '@/interfaces/notion-blog-article';
 import { NOTION_BLOG_DATABASE_ID, notion } from '@/lib/notion';
 
 import { ArticleNotionRenderer } from './article-notion-renderer';
@@ -22,7 +22,7 @@ export async function generateStaticParams() {
     database_id: NOTION_BLOG_DATABASE_ID,
   });
 
-  const articles = response.results as NotionArticle[];
+  const articles = response.results as NotionBlogArticle[];
 
   return articles.map(article => {
     const slug = new URL(article.url).pathname;
@@ -42,7 +42,7 @@ export default async function ArticlePage({
 
   const article = (await notion.pages.retrieve({
     page_id: id,
-  })) as NotionArticle;
+  })) as NotionBlogArticle;
 
   const notionClient = new NotionAPI();
 

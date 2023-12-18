@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-import { NotionArticle } from './interfaces/notion-article';
+import { NotionBlogArticle } from './interfaces/notion-blog-article';
 import { NOTION_BLOG_DATABASE_ID, notion } from './lib/notion';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -8,7 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     database_id: NOTION_BLOG_DATABASE_ID,
   });
 
-  const articles = response.results as NotionArticle[];
+  const articles = response.results as NotionBlogArticle[];
 
   return [
     {

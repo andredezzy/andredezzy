@@ -2,7 +2,7 @@
 
 import { Client } from '@notionhq/client';
 
-import { NotionArticle } from '@/interfaces/notion-article';
+import { NotionBlogArticle } from '@/interfaces/notion-blog-article';
 import { NOTION_INTEGRATION_SECRET } from '@/lib/notion';
 
 const notion = new Client({
@@ -14,7 +14,7 @@ export async function incrementNotionArticleBlogViewCount(
 ) {
   const articlePage = (await notion.pages.retrieve({
     page_id: articlePageId,
-  })) as NotionArticle;
+  })) as NotionBlogArticle;
 
   const viewsCount = articlePage.properties['Blog views count'].number ?? 0;
 

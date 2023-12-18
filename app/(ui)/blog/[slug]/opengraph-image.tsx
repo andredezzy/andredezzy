@@ -2,7 +2,7 @@ import { ServerRuntime } from 'next';
 import { headers } from 'next/headers';
 import { ImageResponse } from 'next/og';
 
-import { NotionArticle } from '@/interfaces/notion-article';
+import { NotionBlogArticle } from '@/interfaces/notion-blog-article';
 import { notion } from '@/lib/notion';
 
 import { ArticlePageParams } from './page';
@@ -21,7 +21,7 @@ export default async function Image({ params }: { params: ArticlePageParams }) {
 
   const article = (await notion.pages.retrieve({
     page_id: id,
-  })) as NotionArticle;
+  })) as NotionBlogArticle;
 
   const protocol = headers().get('x-forwarded-proto') || 'http';
   const host = headers().get('host');

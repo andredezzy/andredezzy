@@ -1,14 +1,19 @@
 import Link from 'next/link';
 
 import { ThemeSwitcher } from '@/components/theme-switcher';
-import { NotionArticle } from '@/interfaces/notion-article';
-import { NOTION_BLOG_DATABASE_ID, notion } from '@/lib/notion';
+import { NotionBlogArticle } from '@/interfaces/notion-blog-article';
+import { NotionProject } from '@/interfaces/notion-project';
+import {
+  NOTION_BLOG_DATABASE_ID,
+  NOTION_PROJECTS_DATABASE_ID,
+  notion,
+} from '@/lib/notion';
 import { cn } from '@/lib/utils';
 
 export const revalidate = 600;
 
 export default async function HomePage() {
-  const response = await notion.databases.query({
+  const blogResponse = await notion.databases.query({
     database_id: NOTION_BLOG_DATABASE_ID,
     sorts: [
       {
@@ -26,10 +31,23 @@ export default async function HomePage() {
     ],
   });
 
-  const articles = response.results as NotionArticle[];
+  const articles = blogResponse.results as NotionBlogArticle[];
+
+  const openSourceProjectsResponse = await notion.databases.query({
+    database_id: NOTION_PROJECTS_DATABASE_ID,
+    filter: {
+      property: 'Type',
+      multi_select: {
+        contains: 'Open Source ✨',
+      },
+    },
+  });
+
+  const openSourceProjects =
+    openSourceProjectsResponse.results as NotionProject[];
 
   return (
-    <main className="container min-h-screen space-y-8 py-20">
+    <main className="container min-h-screen space-y-8 divide-y py-20">
       <header className="space-y-6">
         <h1 className="font-serif text-3xl font-semibold">
           André &quot;Dezzy&quot; Victor
@@ -49,9 +67,7 @@ export default async function HomePage() {
         </Link>
       </header>
 
-      <hr />
-
-      <main className="space-y-6">
+      <section className="space-y-6 pt-8">
         <h2 className="text-lg font-medium">Blog</h2>
 
         <ul className="flex flex-col gap-2">
@@ -76,11 +92,39 @@ export default async function HomePage() {
             );
           })}
         </ul>
-      </main>
+      </section>
 
-      <hr />
+      <section className="space-y-6 pt-8">
+        <h2 className="text-lg font-medium">Open source projects</h2>
 
-      <ThemeSwitcher />
+        <ul className="flex flex-col gap-2">
+          {openSourceProjects.map(project => {
+            return (
+              <li key={project.id}>
+                <Link
+                  target="_blank"
+                  className="text-indigo-500 dark:text-indigo-400"
+                  href={project.properties['Source code URL'].url}
+                >
+                  <span className="underline">
+                    {project.properties.Name.title[0].plain_text}
+                  </span>
+
+                  <span>{': '}</span>
+
+                  <span className="text-muted-foreground">
+                    {project.properties.Description.rich_text[0].plain_text}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
+      <footer className="pt-8">
+        <ThemeSwitcher />
+      </footer>
     </main>
   );
 }

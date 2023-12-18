@@ -1,6 +1,6 @@
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
-export type NotionArticle = PageObjectResponse & {
+export type NotionBlogArticle = PageObjectResponse & {
   properties: {
     Name: {
       title: [
