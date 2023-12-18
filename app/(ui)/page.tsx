@@ -52,11 +52,11 @@ export default async function HomePage() {
       <hr />
 
       <main className="space-y-6">
-        <h2 className="text-lg font-medium">Articles</h2>
+        <h2 className="text-lg font-medium">Blog</h2>
 
         <ul className="flex flex-col gap-2">
           {articles.map(article => {
-            const slug = '/articles' + new URL(article.url).pathname;
+            const slug = '/blog' + new URL(article.url).pathname;
 
             return (
               <li key={article.id}>

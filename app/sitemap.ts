@@ -16,12 +16,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     {
-      url: 'https://andredezzy.com/articles',
+      url: 'https://andredezzy.com/blog',
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     ...articles.map(article => {
-      const slug = 'articles' + new URL(article.url).pathname;
+      const slug = 'blog' + new URL(article.url).pathname;
 
       return {
         url: `https://andredezzy.com/${slug}`,
