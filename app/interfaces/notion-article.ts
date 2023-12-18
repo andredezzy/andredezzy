@@ -20,6 +20,5 @@ export type NotionArticle = PageObjectResponse & {
     'Last edited time': {
       last_edited_time: string;
     };
-    }
   };
 };
