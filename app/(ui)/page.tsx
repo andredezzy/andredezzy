@@ -1,3 +1,10 @@
+import {
+  GithubIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  MailIcon,
+  TwitterIcon,
+} from 'lucide-react';
 import Link from 'next/link';
 
 import { ThemeSwitcher } from '@/components/theme-switcher';
@@ -60,11 +67,65 @@ export default async function HomePage() {
         </p>
 
         <Link
-          className="block text-indigo-500 underline dark:text-indigo-400"
+          className="block text-indigo-500 underline hover:text-indigo-600 dark:text-indigo-400 hover:dark:dark:text-indigo-300"
           href="https://notion.andredezzy.com"
         >
           Resume on Notion
         </Link>
+
+        <div className="flex items-center gap-4">
+          <a
+            href="https://github.com/andredezzy"
+            target="_blank"
+            className="hover:opacity-70"
+          >
+            <GithubIcon strokeWidth={1.5} />
+          </a>
+
+          <a
+            href="https://x.com/andredezzy"
+            target="_blank"
+            className="hover:opacity-70"
+          >
+            <TwitterIcon strokeWidth={1.5} />
+          </a>
+
+          <a
+            href="https://linkedin.com/in/andredezzy"
+            target="_blank"
+            className="hover:opacity-70"
+          >
+            <LinkedinIcon strokeWidth={1.5} />
+          </a>
+
+          <a
+            href="mailto:hello@andredezzy.com"
+            target="_blank"
+            className="hover:opacity-70"
+          >
+            <MailIcon strokeWidth={1.5} />
+          </a>
+
+          <div className="ml-0.5 flex items-center gap-3">
+            <a
+              href="https://instagram.com/andre.dezzy"
+              target="_blank"
+              className="flex items-center gap-1 text-xl hover:opacity-70"
+            >
+              <InstagramIcon strokeWidth={1.5} />
+              🙋🏻‍♂️
+            </a>
+
+            <a
+              href="https://instagram.com/dezzy.visions"
+              target="_blank"
+              className="flex items-center gap-1 text-xl hover:opacity-70"
+            >
+              <InstagramIcon strokeWidth={1.5} />
+              📸
+            </a>
+          </div>
+        </div>
       </header>
 
       <section className="space-y-6 pt-8">
@@ -80,7 +141,7 @@ export default async function HomePage() {
                   className={cn('underline', {
                     'text-muted-foreground':
                       article.properties.Status.status.name !== 'Published',
-                    'text-indigo-500 dark:text-indigo-400':
+                    'text-indigo-500 hover:text-indigo-600 dark:text-indigo-400 hover:dark:dark:text-indigo-300':
                       article.properties.Status.status.name === 'Published',
                   })}
                   href={slug}
@@ -103,7 +164,7 @@ export default async function HomePage() {
               <li key={project.id}>
                 <Link
                   target="_blank"
-                  className="text-indigo-500 dark:text-indigo-400"
+                  className="text-indigo-500 hover:text-indigo-600 dark:text-indigo-400 hover:dark:dark:text-indigo-300"
                   href={project.properties['Source code URL'].url}
                 >
                   <span className="underline">
