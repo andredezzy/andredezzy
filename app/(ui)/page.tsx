@@ -79,7 +79,7 @@ export default async function HomePage() {
             target="_blank"
             className="hover:opacity-70"
           >
-            <GithubIcon strokeWidth={1.5} />
+            <GithubIcon strokeWidth={1} />
           </a>
 
           <a
@@ -87,7 +87,7 @@ export default async function HomePage() {
             target="_blank"
             className="hover:opacity-70"
           >
-            <TwitterIcon strokeWidth={1.5} />
+            <TwitterIcon strokeWidth={1} />
           </a>
 
           <a
@@ -95,7 +95,7 @@ export default async function HomePage() {
             target="_blank"
             className="hover:opacity-70"
           >
-            <LinkedinIcon strokeWidth={1.5} />
+            <LinkedinIcon strokeWidth={1} />
           </a>
 
           <a
@@ -103,7 +103,7 @@ export default async function HomePage() {
             target="_blank"
             className="hover:opacity-70"
           >
-            <MailIcon strokeWidth={1.5} />
+            <MailIcon strokeWidth={1} />
           </a>
 
           <div className="ml-0.5 flex items-center gap-3">
@@ -112,7 +112,7 @@ export default async function HomePage() {
               target="_blank"
               className="flex items-center gap-1 text-xl hover:opacity-70"
             >
-              <InstagramIcon strokeWidth={1.5} />
+              <InstagramIcon strokeWidth={1} />
               🙋🏻‍♂️
             </a>
 
@@ -121,7 +121,7 @@ export default async function HomePage() {
               target="_blank"
               className="flex items-center gap-1 text-xl hover:opacity-70"
             >
-              <InstagramIcon strokeWidth={1.5} />
+              <InstagramIcon strokeWidth={1} />
               📸
             </a>
           </div>
