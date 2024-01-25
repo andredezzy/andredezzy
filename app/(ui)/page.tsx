@@ -69,6 +69,7 @@ export default async function HomePage() {
         <Link
           className="block text-indigo-500 underline hover:text-indigo-600 dark:text-indigo-400 hover:dark:dark:text-indigo-300"
           href="https://notion.andredezzy.com"
+          target="_blank"
         >
           Resume on Notion
         </Link>
